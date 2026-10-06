@@ -9,23 +9,7 @@ export const TextPair = ({
   variant = "default",
 }: TextPairProps) => {
   const styles = getStyles({ theme });
-  const variantStyles = {
-    default: {
-      container: styles.container,
-      title: styles.title,
-      subtitle: styles.subtitle,
-    },
-    stock: {
-      container: styles.stockContainer,
-      title: styles.stockTitle,
-      subtitle: styles.stockSubtitle,
-    },
-    threshold: {
-      container: styles.thresholdContainer,
-      title: styles.thresholdTitle,
-      subtitle: styles.thresholdSubtitle,
-    },
-  }[variant];
+  const variantStyles = styles.variantStyles[variant];
 
   return (
     <View style={variantStyles.container}>

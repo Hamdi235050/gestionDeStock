@@ -1,80 +1,63 @@
-import { Edit } from "@/components/Icons";
+import { BackSquare, Edit } from "@/components/Icons";
+import { Button } from "@/components";
 import { useTheme } from "@/theme";
 import { router } from "expo-router";
-import { Pressable, StyleSheet, Text, View } from "react-native";
+import { useState } from "react";
+import { ScrollView, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-
+import { StockAdjustment } from "./StockAdjustment";
+import { StockInformation } from "./StockInformation";
+import { StockOverview } from "./StockOverview";
+import { useStyles } from "./styles";
 export const StockScreen = () => {
   const theme = useTheme();
-  const styles = StyleSheet.create({
-    screen: {
-      backgroundColor: theme.colors.background,
-      flex: 1,
-      paddingHorizontal: theme.spacing.md,
-    },
-    header: {
-      alignItems: "center",
-      flexDirection: "row",
-      justifyContent: "space-between",
-      minHeight: 56,
-    },
-    headerButton: {
-      alignItems: "center",
-      backgroundColor: theme.colors.background,
-      borderColor: theme.colors.border,
-      borderRadius: 20,
-      borderWidth: 1,
-      height: 40,
-      justifyContent: "center",
-      width: 40,
-    },
-    backIcon: {
-      color: theme.colors.text,
-      fontSize: 28,
-      lineHeight: 30,
-      marginTop: -3,
-    },
-    editIcon: {
-      color: theme.colors.text,
-      fontSize: 22,
-      lineHeight: 24,
-    },
-    headerTitle: {
-      color: theme.colors.text,
-      ...theme.typography.bold.medium,
-    },
-    content: {
-      flex: 1,
-      paddingTop: theme.spacing.lg,
-    },
-    description: {
-      color: theme.colors.mutedText,
-      ...theme.typography.regular.medium,
-    },
-  });
+  const styles = useStyles({ theme });
+  const [stock, setStock] = useState(0);
+  const alertThreshold = 8;
+
+  const updateStock = (amount: number) => {
+    setStock((currentStock) => Math.max(0, currentStock + amount));
+  };
 
   return (
     <SafeAreaView style={styles.screen}>
       <View style={styles.header}>
-        <Pressable
+        <Button
           accessibilityLabel="Retour"
           onPress={() => router.back()}
+          theme={theme}
           style={styles.headerButton}
         >
-          <Text style={styles.backIcon}>‹</Text>
-        </Pressable>
+          <BackSquare />
+        </Button>
         <Text style={styles.headerTitle}>Détail du produit</Text>
-        <Pressable accessibilityLabel="Modifier" style={styles.headerButton}>
+        <Button
+          accessibilityLabel="Modifier"
+          theme={theme}
+          style={styles.headerButton}
+        >
           <Text style={styles.editIcon}>
             <Edit />
           </Text>
-        </Pressable>
+        </Button>
       </View>
-      <View style={styles.content}>
-        <Text style={styles.description}>
-          La liste des produits sera affichée ici.
-        </Text>
-      </View>
+      <ScrollView
+        contentContainerStyle={styles.content}
+        showsVerticalScrollIndicator={false}
+        style={styles.scroll}
+      >
+        <StockOverview
+          alertThreshold={alertThreshold}
+          stock={stock}
+          theme={theme}
+        />
+        <StockAdjustment
+          onUpdateStock={updateStock}
+          stock={stock}
+          theme={theme}
+        />
+        <StockInformation theme={theme} />
+      </ScrollView>
     </SafeAreaView>
   );
 };

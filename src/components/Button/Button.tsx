@@ -1,13 +1,25 @@
-import { Theme } from "@/theme/types";
-import { Button as Btn, Text, View } from "react-native";
+import { Pressable } from "react-native";
 import { useStyles } from "./styles";
+import { ButtonProps } from "./types";
 
-export const Button = ({ theme }: { theme: Theme }) => {
+export const Button = ({
+  theme,
+  children,
+  onPress,
+  accessibilityLabel,
+  accessibilityState,
+  style,
+}: ButtonProps) => {
   const styles = useStyles({ theme });
+
   return (
-    <View style={styles.button}>
-      <Btn title="btn" />
-      <Text style={theme.typography.regular.small}>Button</Text>
-    </View>
+    <Pressable
+      accessibilityLabel={accessibilityLabel}
+      accessibilityState={accessibilityState}
+      onPress={onPress}
+      style={[styles.button, style]}
+    >
+      {children}
+    </Pressable>
   );
 };

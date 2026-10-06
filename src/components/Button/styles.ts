@@ -4,9 +4,10 @@ import { StyleSheet } from "react-native";
 export const useStyles = ({ theme }: { theme: Theme }) => {
   return StyleSheet.create({
     button: {
+      alignItems: "center",
       backgroundColor: theme.colors.surface,
-      padding: 10,
       borderRadius: 5,
+      justifyContent: "center",
     },
   });
 };

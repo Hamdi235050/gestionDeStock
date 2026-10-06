@@ -18,7 +18,7 @@ export const useStyles = ({ theme }: { theme: Theme }) =>
       alignItems: "center",
       backgroundColor: theme.colors.background,
       borderColor: theme.colors.border,
-      borderRadius: 999,
+      borderRadius: 20,
       borderWidth: 1,
       height: 40,
       justifyContent: "center",
@@ -39,12 +39,12 @@ export const useStyles = ({ theme }: { theme: Theme }) =>
       color: theme.colors.text,
       ...theme.typography.bold.medium,
     },
-    content: {
+    scroll: {
       flex: 1,
-      paddingTop: theme.spacing.lg,
     },
-    description: {
-      color: theme.colors.mutedText,
-      ...theme.typography.regular.medium,
+    content: {
+      flexGrow: 1,
+      paddingBottom: theme.spacing.lg,
+      paddingTop: theme.spacing.lg,
     },
   });

@@ -4,7 +4,13 @@ import { Link, router } from "expo-router";
 import { Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useStyles } from "./styles";
-import { CategorySelect, InputSearch, ProductCard, Tag } from "@/components";
+import {
+  Button,
+  CategorySelect,
+  InputSearch,
+  ProductCard,
+  Tag,
+} from "@/components";
 
 const categories = [
   { label: "Tous", value: "all" },
@@ -17,7 +23,7 @@ export const HomeScreen = () => {
   const styles = useStyles({ theme });
   const [selectedCategory, setSelectedCategory] = useState<Category>("all");
   return (
-    <SafeAreaView style={{ flex: 1, padding: 15 }}>
+    <SafeAreaView style={styles.container}>
       <View style={styles.container}>
         <Text style={styles.text}>Entrepot Principale</Text>
         <View style={styles.productsContainer}>
@@ -25,7 +31,7 @@ export const HomeScreen = () => {
           <Tag
             bgColor={theme.colors.blueLight}
             color={theme.colors.primary}
-            tagName="test"
+            tagName="références"
             theme={theme}
           />
         </View>
@@ -41,10 +47,18 @@ export const HomeScreen = () => {
           category="Hygiène"
           name="Gel hydroalcoolique"
           onPress={() => router.push("/stock")}
-          stock={0}
+          stock={6}
           theme={theme}
         />
       </View>
+      <Button
+        accessibilityLabel="Ajouter un produit"
+        onPress={() => router.push("/stock")}
+        theme={theme}
+        style={styles.addButton}
+      >
+        <Text style={styles.addButtonText}>+</Text>
+      </Button>
     </SafeAreaView>
   );
 };

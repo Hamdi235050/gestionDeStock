@@ -1,6 +1,15 @@
 import { Theme } from "@/theme/types";
 
-export type TextPairVariant = "default" | "stock" | "threshold";
+export type TextPairVariant =
+  | "default"
+  | "description"
+  | "entryAction"
+  | "exitAction"
+  | "information"
+  | "section"
+  | "stock"
+  | "stockSummary"
+  | "threshold";
 
 export type TextPairProps = {
   theme: Theme;
