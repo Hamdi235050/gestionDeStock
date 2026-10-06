@@ -8,6 +8,8 @@ export const lightColors: Colors = {
   text: "#212529",
   mutedText: "#6c757d",
   border: "#dee2e6",
+  brickRed: "#a21f18",
+  blueLight: "#E6E9FC",
 };
 
 export const darkColors: Colors = {
@@ -18,6 +20,8 @@ export const darkColors: Colors = {
   text: "#f8f9fa",
   mutedText: "#adb5bd",
   border: "#343a40",
+  brickRed: "#a21f18",
+  blueLight: "",
 };
 
 export const colors = lightColors;

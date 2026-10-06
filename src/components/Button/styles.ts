@@ -1,8 +1,7 @@
+import { Theme } from "@/theme/types";
 import { StyleSheet } from "react-native";
-import { useTheme } from "../../theme";
 
-export const useStyles = () => {
-  const theme = useTheme();
+export const useStyles = ({ theme }: { theme: Theme }) => {
   return StyleSheet.create({
     button: {
       backgroundColor: theme.colors.surface,

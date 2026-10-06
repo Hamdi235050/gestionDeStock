@@ -1,1 +1,1 @@
-export * from "@/screens/StockScreen/StockScreen";
+export { StockScreen as default } from "../screens/StockScreen/StockScreen";

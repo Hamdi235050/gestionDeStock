@@ -9,6 +9,8 @@ export type Colors = {
   text: string;
   mutedText: string;
   border: string;
+  brickRed: string;
+  blueLight: string;
 };
 export type Theme = {
   dark: boolean;

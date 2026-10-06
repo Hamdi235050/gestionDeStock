@@ -1,14 +1,13 @@
+import { Theme } from "@/theme/types";
 import { Button as Btn, Text, View } from "react-native";
-import { useTheme } from "../../theme";
 import { useStyles } from "./styles";
 
-export const Button = () => {
-  const styles = useStyles();
-  const theme = useTheme();
+export const Button = ({ theme }: { theme: Theme }) => {
+  const styles = useStyles({ theme });
   return (
     <View style={styles.button}>
       <Btn title="btn" />
-      <Text>Button </Text>
+      <Text style={theme.typography.regular.small}>Button</Text>
     </View>
   );
 };

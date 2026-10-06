@@ -1,6 +1,8 @@
 import React, { createContext, useContext, useMemo } from "react";
 import { useColorScheme } from "react-native";
-import { darkColors, lightColors, spacing, typography } from "./index";
+import { darkColors, lightColors } from "./colors";
+import { spacing } from "./spacing";
+import { typography } from "./typography";
 import { Theme } from "./types";
 
 const ThemeContext = createContext<Theme | null>(null);
