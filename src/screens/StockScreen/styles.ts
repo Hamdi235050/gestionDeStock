@@ -16,10 +16,7 @@ export const useStyles = ({ theme }: { theme: Theme }) =>
     },
     headerButton: {
       alignItems: "center",
-      backgroundColor: theme.colors.background,
-      borderColor: theme.colors.border,
-      borderRadius: 20,
-      borderWidth: 1,
+      borderRadius: 0,
       height: 40,
       justifyContent: "center",
       width: 40,

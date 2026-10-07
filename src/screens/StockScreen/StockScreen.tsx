@@ -33,6 +33,7 @@ export const StockScreen = () => {
         <Text style={styles.headerTitle}>Détail du produit</Text>
         <Button
           accessibilityLabel="Modifier"
+          onPress={() => router.push("/modify-product")}
           theme={theme}
           style={styles.headerButton}
         >

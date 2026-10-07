@@ -11,6 +11,14 @@ export const AppStack = () => {
         name="stock"
         options={{ title: "Stock", headerShown: false }}
       />
+      <Stack.Screen
+        name="create-product"
+        options={{ title: "Nouveau produit", headerShown: false }}
+      />
+      <Stack.Screen
+        name="modify-product"
+        options={{ title: "Modifier le produit", headerShown: false }}
+      />
     </Stack>
   );
 };

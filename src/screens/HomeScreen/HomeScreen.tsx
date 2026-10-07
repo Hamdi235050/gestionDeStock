@@ -1,9 +1,3 @@
-import { useTheme } from "@/theme";
-import { useState } from "react";
-import { Link, router } from "expo-router";
-import { Text, View } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
-import { useStyles } from "./styles";
 import {
   Button,
   CategorySelect,
@@ -11,6 +5,12 @@ import {
   ProductCard,
   Tag,
 } from "@/components";
+import { useTheme } from "@/theme";
+import { router } from "expo-router";
+import { useState } from "react";
+import { Text, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { useStyles } from "./styles";
 
 const categories = [
   { label: "Tous", value: "all" },
@@ -53,7 +53,7 @@ export const HomeScreen = () => {
       </View>
       <Button
         accessibilityLabel="Ajouter un produit"
-        onPress={() => router.push("/stock")}
+        onPress={() => router.push("/create-product")}
         theme={theme}
         style={styles.addButton}
       >
