@@ -26,6 +26,14 @@ export const useStyles = ({ theme }: { theme: Theme }) =>
       gap: theme.spacing.sm,
       justifyContent: "space-between",
     },
+    productsList: {
+      flexGrow: 1,
+      gap: theme.spacing.sm,
+    },
+    message: {
+      color: theme.colors.secondary,
+      ...theme.typography.regular.medium,
+    },
     addButton: {
       alignItems: "center",
       backgroundColor: theme.colors.primary,

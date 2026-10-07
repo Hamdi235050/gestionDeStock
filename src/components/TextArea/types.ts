@@ -6,4 +6,5 @@ export type TextAreaProps = {
   placeholder: string;
   value: string;
   onChangeText: (value: string) => void;
+  error?: string;
 };

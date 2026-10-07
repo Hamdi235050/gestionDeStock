@@ -10,6 +10,10 @@ export const useStyles = ({ theme }: { theme: Theme }) =>
       color: theme.colors.text,
       ...theme.typography.semiBold.small,
     },
+    error: {
+      color: theme.colors.brickRed,
+      ...theme.typography.regular.xSmall,
+    },
     select: {
       alignItems: "center",
       backgroundColor: theme.colors.background,

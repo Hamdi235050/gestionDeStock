@@ -11,6 +11,12 @@ export type Colors = {
   border: string;
   brickRed: string;
   blueLight: string;
+  danger: string;
+  dangerBackground: string;
+  warning: string;
+  warningBackground: string;
+  success: string;
+  successBackground: string;
 };
 export type Theme = {
   dark: boolean;

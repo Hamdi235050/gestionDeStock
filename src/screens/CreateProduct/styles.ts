@@ -67,4 +67,9 @@ export const useStyles = ({ theme }: { theme: Theme }) =>
       color: theme.colors.background,
       ...theme.typography.bold.medium,
     },
+    submitError: {
+      color: theme.colors.brickRed,
+      marginBottom: theme.spacing.sm,
+      ...theme.typography.regular.small,
+    },
   });

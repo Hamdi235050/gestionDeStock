@@ -8,4 +8,5 @@ export type InputProps = {
   value: string;
   onChangeText: (value: string) => void;
   keyboardType?: KeyboardTypeOptions;
+  error?: string;
 };

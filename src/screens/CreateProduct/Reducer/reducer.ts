@@ -3,7 +3,8 @@ export const initialFormState: FormState = {
   name: "",
   reference: "",
   quantity: "0",
-  threshold: "10",
+  category: "all",
+  alert_threshold: "",
   description: "",
 };
 export const formReducer = (
@@ -11,6 +12,8 @@ export const formReducer = (
   action: FormAction,
 ): FormState => {
   switch (action.type) {
+    case "setForm":
+      return action.value;
     case "setName":
       return { ...state, name: action.value };
     case "setReference":
@@ -20,7 +23,7 @@ export const formReducer = (
     case "setQuantity":
       return { ...state, quantity: action.value };
     case "setThreshold":
-      return { ...state, threshold: action.value };
+      return { ...state, alert_threshold: action.value };
     case "setDescription":
       return { ...state, description: action.value };
   }

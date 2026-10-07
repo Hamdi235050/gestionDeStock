@@ -1,9 +1,9 @@
 import { Theme } from "@/theme/types";
+import { Product } from "@/services/types";
 
 export type StockOverviewProps = {
   theme: Theme;
-  stock: number;
-  alertThreshold: number;
+  product: Product;
 };
 
 export type StockOverviewStyleOptions = {

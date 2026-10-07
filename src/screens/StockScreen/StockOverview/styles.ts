@@ -23,7 +23,7 @@ export const useStyles = ({ theme }: StockOverviewStyleOptions) =>
       overflow: "visible",
     },
     progress: {
-      backgroundColor: "#e3a800",
+      backgroundColor: theme.colors.success,
       borderRadius: 8,
       height: "100%",
     },
@@ -35,7 +35,7 @@ export const useStyles = ({ theme }: StockOverviewStyleOptions) =>
       width: 2,
     },
     alertText: {
-      color: "#a85d00",
+      color: theme.colors.success,
       marginTop: theme.spacing.sm,
       ...theme.typography.regular.small,
     },

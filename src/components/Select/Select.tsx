@@ -2,6 +2,7 @@ import { Modal, Pressable, Text, View } from "react-native";
 import { useState } from "react";
 import { useStyles } from "./styles";
 import { SelectProps } from "./types";
+import { ArrowDown } from "@/components/Icons";
 
 export const Select = <T extends string>({
   theme,
@@ -10,6 +11,7 @@ export const Select = <T extends string>({
   options,
   value,
   onChange,
+  error,
 }: SelectProps<T>) => {
   const styles = useStyles({ theme });
   const [open, setOpen] = useState(false);
@@ -32,8 +34,11 @@ export const Select = <T extends string>({
         <Text style={[styles.value, !selectedOption && styles.placeholder]}>
           {selectedOption?.label ?? placeholder}
         </Text>
-        <Text style={styles.arrow}>⌄</Text>
+        <Text style={styles.arrow}>
+          <ArrowDown />
+        </Text>
       </Pressable>
+      {error && <Text style={styles.error}>{error}</Text>}
       <Modal
         animationType="slide"
         onRequestClose={() => setOpen(false)}

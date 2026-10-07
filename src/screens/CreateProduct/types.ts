@@ -1,15 +1,16 @@
-export type Category = "grocery" | "drinks" | "hygiene";
+export type Category = "grocery" | "drinks" | "hygiene" | "all";
 
 export type FormState = {
   name: string;
   reference: string;
-  category?: Category;
+  category: Category;
   quantity: string;
-  threshold: string;
+  alert_threshold: string;
   description: string;
 };
 
 export type FormAction =
+  | { type: "setForm"; value: FormState }
   | { type: "setName"; value: string }
   | { type: "setReference"; value: string }
   | { type: "setCategory"; value: Category }

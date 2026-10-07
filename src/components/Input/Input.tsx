@@ -9,6 +9,7 @@ export const Input = ({
   value,
   onChangeText,
   keyboardType,
+  error,
 }: InputProps) => {
   const styles = useStyles({ theme });
 
@@ -24,6 +25,7 @@ export const Input = ({
         style={styles.input}
         value={value}
       />
+      {error && <Text style={styles.error}>{error}</Text>}
     </View>
   );
 };

@@ -5,23 +5,36 @@ import {
   ProductCard,
   Tag,
 } from "@/components";
+import { useProducts } from "@/hooks";
 import { useTheme } from "@/theme";
 import { router } from "expo-router";
 import { useState } from "react";
-import { Text, View } from "react-native";
+import { ScrollView, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useStyles } from "./styles";
-
-const categories = [
-  { label: "Tous", value: "all" },
-  { label: "Boissons", value: "drinks" },
-];
-type Category = (typeof categories)[number]["value"];
+import { categories } from "@/screens/HomeScreen/constants";
+import { Category } from "@/screens/CreateProduct/types";
 
 export const HomeScreen = () => {
   const theme = useTheme();
   const styles = useStyles({ theme });
   const [selectedCategory, setSelectedCategory] = useState<Category>("all");
+  const [search, setSearch] = useState("");
+  const { data: products = [] } = useProducts();
+
+  const normalizedSearch = search.trim().toLowerCase();
+
+  const filteredProducts = products.filter(({ category, name, reference }) => {
+    const matchesCategory =
+      selectedCategory === "all" || category === selectedCategory;
+
+    const matchesSearch =
+      !normalizedSearch ||
+      name.toLowerCase().includes(normalizedSearch) ||
+      reference.toLowerCase().includes(normalizedSearch);
+
+    return matchesCategory && matchesSearch;
+  });
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.container}>
@@ -31,25 +44,32 @@ export const HomeScreen = () => {
           <Tag
             bgColor={theme.colors.blueLight}
             color={theme.colors.primary}
-            tagName="références"
+            tagName={`${products.length} références`}
             theme={theme}
           />
         </View>
-        <InputSearch theme={theme} value="e" />
-        <CategorySelect
+        <InputSearch onChangeText={setSearch} theme={theme} value={search} />
+        <CategorySelect<Category>
           onChange={setSelectedCategory}
           options={categories}
           selectedValue={selectedCategory}
           theme={theme}
         />
-        <ProductCard
-          alertThreshold={10}
-          category="Hygiène"
-          name="Gel hydroalcoolique"
-          onPress={() => router.push("/stock")}
-          stock={6}
-          theme={theme}
-        />
+        <ScrollView
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={styles.productsList}
+        >
+          {filteredProducts.map((product) => {
+            return (
+              <ProductCard
+                key={product.id}
+                onPress={() => router.push(`/stock?productId=${product?.id}`)}
+                product={product}
+                theme={theme}
+              />
+            );
+          })}
+        </ScrollView>
       </View>
       <Button
         accessibilityLabel="Ajouter un produit"

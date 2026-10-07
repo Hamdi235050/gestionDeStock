@@ -8,6 +8,7 @@ export const TextArea = ({
   placeholder,
   value,
   onChangeText,
+  error,
 }: TextAreaProps) => {
   const styles = useStyles({ theme });
 
@@ -23,6 +24,7 @@ export const TextArea = ({
         style={styles.input}
         value={value}
       />
+      {error && <Text style={styles.error}>{error}</Text>}
     </View>
   );
 };

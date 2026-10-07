@@ -25,7 +25,7 @@ export const StockAdjustment = ({
       <View style={styles.quantityRow}>
         <Button
           accessibilityLabel="Diminuer la quantité"
-          onPress={() => setQuantity((current) => Math.max(1, current - 1))}
+          onPress={() => setQuantity((current) => current - 1)}
           theme={theme}
           style={styles.stepperButton}
         >
@@ -59,7 +59,7 @@ export const StockAdjustment = ({
         </Button>
         <Button
           accessibilityLabel="Retirer du stock"
-          onPress={() => onUpdateStock(-quantity)}
+          onPress={() => onUpdateStock(stock - quantity)}
           theme={theme}
           style={[styles.actionButton, styles.exitButton]}
         >

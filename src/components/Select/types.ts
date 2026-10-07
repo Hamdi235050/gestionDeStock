@@ -12,4 +12,5 @@ export type SelectProps<T extends string = string> = {
   options: readonly SelectOption<T>[];
   value: T | undefined;
   onChange: (value: T) => void;
+  error?: string;
 };

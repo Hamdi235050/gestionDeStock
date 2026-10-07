@@ -2,31 +2,30 @@ import { Pressable, View } from "react-native";
 import { Tag } from "../Tag";
 import { TextPair } from "../TextPair";
 import { getStyles } from "./styles";
+import { getProductStatus } from "./status";
 import { ProductCardProps } from "./types";
 
-export const ProductCard = ({
-  theme,
-  name,
-  category,
-  stock,
-  alertThreshold,
-  status = "outOfStock",
-  statusColor = theme.colors.brickRed,
-  statusBackgroundColor = "#fee2e2",
-  onPress,
-}: ProductCardProps) => {
-  const progress = Math.min(stock / Math.max(alertThreshold, 1), 1);
+export const ProductCard = ({ theme, product, onPress }: ProductCardProps) => {
+  const progress = Math.min(
+    product.quantity / Math.max(product.alert_threshold, 1),
+    1,
+  );
+  const status = getProductStatus(product, theme);
   const styles = getStyles({ theme, progress });
 
   return (
     <Pressable onPress={onPress} style={styles.card}>
       <View style={styles.titleRow}>
-        <TextPair subtitle={category} theme={theme} title={name} />
+        <TextPair
+          subtitle={product.category}
+          theme={theme}
+          title={product.name}
+        />
         <Tag
-          bgColor={statusBackgroundColor}
-          color={statusColor}
+          bgColor={status.background}
+          color={status.color}
           size="small"
-          tagName={status}
+          tagName={status.label}
           theme={theme}
         />
       </View>
@@ -35,11 +34,11 @@ export const ProductCard = ({
         <TextPair
           subtitle="en stock"
           theme={theme}
-          title={String(stock)}
+          title={String(product.quantity)}
           variant="stock"
         />
         <TextPair
-          subtitle={String(alertThreshold)}
+          subtitle={String(product.alert_threshold)}
           theme={theme}
           title="Seuil d'alerte"
           variant="threshold"
