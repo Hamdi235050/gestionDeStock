@@ -13,8 +13,7 @@ import { useStyles } from "./styles";
 export const ModifyProduct = () => {
   const theme = useTheme();
   const styles = useStyles({ theme });
-  const { dispatch, form, handleSubmit, isSubmitting, product } =
-    useModifyProductForm();
+  const { dispatch, form, handleSubmit, product } = useModifyProductForm();
   useEffect(() => {
     if (!product) return;
     dispatch({
