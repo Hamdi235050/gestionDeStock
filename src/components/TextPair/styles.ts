@@ -133,11 +133,6 @@ export const getStyles = ({ theme }: TextPairStyleOptions) => {
       title: styles.title,
       subtitle: styles.subtitle,
     },
-    description: {
-      container: styles.descriptionContainer,
-      title: styles.descriptionTitle,
-      subtitle: styles.descriptionSubtitle,
-    },
     entryAction: {
       container: styles.entryActionContainer,
       title: styles.entryActionTitle,

@@ -46,7 +46,7 @@ export const StockAdjustment = ({
       <View style={styles.actionsRow}>
         <Button
           accessibilityLabel="Ajouter au stock"
-          onPress={() => onUpdateStock(quantity)}
+          onPress={() => onUpdateStock(stock + quantity)}
           theme={theme}
           style={[styles.actionButton, styles.entryButton]}
         >

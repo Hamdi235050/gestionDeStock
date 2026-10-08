@@ -25,7 +25,7 @@ export const StockInformation = ({ theme, product }: StockInformationProps) => {
         subtitle={product?.description ?? "Aucune description."}
         theme={theme}
         title="Description"
-        variant="description"
+        variant="information"
       />
     </View>
   );

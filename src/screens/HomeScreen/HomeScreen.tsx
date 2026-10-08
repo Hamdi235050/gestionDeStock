@@ -59,16 +59,20 @@ export const HomeScreen = () => {
           showsVerticalScrollIndicator={false}
           contentContainerStyle={styles.productsList}
         >
-          {filteredProducts.map((product) => {
-            return (
-              <ProductCard
-                key={product.id}
-                onPress={() => router.push(`/stock?productId=${product?.id}`)}
-                product={product}
-                theme={theme}
-              />
-            );
-          })}
+          {filteredProducts.length > 0 ? (
+            filteredProducts.map((product) => {
+              return (
+                <ProductCard
+                  key={product.id}
+                  onPress={() => router.push(`/stock?productId=${product?.id}`)}
+                  product={product}
+                  theme={theme}
+                />
+              );
+            })
+          ) : (
+            <Text style={styles.noProductsText}>Aucun produit trouvé</Text>
+          )}
         </ScrollView>
       </View>
       <Button

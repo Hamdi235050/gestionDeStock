@@ -2,7 +2,6 @@ import { Theme } from "@/theme/types";
 
 export type TextPairVariant =
   | "default"
-  | "description"
   | "entryAction"
   | "exitAction"
   | "information"

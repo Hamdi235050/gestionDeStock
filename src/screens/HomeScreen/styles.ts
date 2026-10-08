@@ -30,6 +30,12 @@ export const useStyles = ({ theme }: { theme: Theme }) =>
       flexGrow: 1,
       gap: theme.spacing.sm,
     },
+    noProductsText: {
+      flex: 1,
+      justifyContent: "center",
+      alignItems: "center",
+      ...theme.typography.bold.large,
+    },
     message: {
       color: theme.colors.secondary,
       ...theme.typography.regular.medium,
