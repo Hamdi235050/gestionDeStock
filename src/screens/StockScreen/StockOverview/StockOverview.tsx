@@ -10,7 +10,6 @@ export const StockOverview = ({ theme, product }: StockOverviewProps) => {
     1,
   );
   const status = getProductStatus(product, theme);
-  console.log(product?.alert_threshold);
   return (
     <>
       <View style={styles.productHeader}>

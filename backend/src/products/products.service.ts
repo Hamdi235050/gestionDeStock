@@ -27,9 +27,9 @@ export class ProductsService implements OnModuleInit {
   async onModuleInit() {
     try {
       await initializeDatabase();
-      console.log('✅ Table "products" créée ou déjà existante.');
+      console.log('Table "products" créée ou déjà existante.');
     } catch (error) {
-      console.error("❌ Erreur lors de l'initialisation de la BDD:", error);
+      console.error("Erreur lors de l'initialisation de la BDD:", error);
     }
   }
 

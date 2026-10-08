@@ -9,7 +9,6 @@ export const useUpdateProduct = () => {
 
   return useMutation({
     mutationFn: ({ id, payload }: UpdateProductVariables) => {
-      console.log("Updating product with ID:", id, "and payload:", payload);
       return updateProduct(id, payload);
     },
     onSuccess: (product) => {
