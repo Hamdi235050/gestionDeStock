@@ -45,12 +45,12 @@ cd gestionDeStock
    docker run --name postgres-stock -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=postgres -p 5432:5432 -d postgres # docker
 4. Démarrer le Backend NestJS
    cd backend
-   npm install
-   npm run start:dev
+   pnpm install
+   pnpm run start:dev
 
 5. Démarrer l'application React Native avec Expo
-   npm install
-   npm start
+   pnpm install
+   pnpm start
 
 ### 2. Nouvelle section : Choix techniques & Architecture
 
