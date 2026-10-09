@@ -102,8 +102,12 @@ src/app/
 ### Pourquoi PostgreSQL pour la Base de Données ?
 
 Pour ce projet, **PostgreSQL** a été retenu comme base de données relationnelle bien qu'il s'agisse d'une application de taille modeste ce choix permet d'assurer une **cohérence stricte des données** tout en profitant d'une intégration parfaite avec l'écosystème **NestJS** . De plus, son déploiement rapide via **Docker** simplifie l'installation en local sans alourdir le développement.
-
+Cette page d'accueil affiche la liste des produits et propose des options de filtrage par catégorie ainsi qu'une barre de recherche.
 ![Texte alternatif](./images/pageD'acceille.png)
+
+Cette page permet de créer un nouveau produit en veillant au respect des champs obligatoires.
+
 ![Texte alternatif](./images/nouveauProduit.png)
+Cette page permet de modifier un produit existant
 ![Texte alternatif](./images/modfier%20Produit.png)
 ![Texte alternatif](./images/wP8yZPkg7t.png)
