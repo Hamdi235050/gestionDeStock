@@ -23,7 +23,7 @@ export const getProducts = async (): Promise<Product[]> => {
     throw new Error("Impossible de charger les produits.");
   }
 
-  return response.json() as Promise<Product[]>;
+  return response.json();
 };
 
 export const getProduct = async (id: number): Promise<Product> => {
@@ -33,7 +33,7 @@ export const getProduct = async (id: number): Promise<Product> => {
     throw new Error(await getErrorMessage(response));
   }
 
-  return response.json() as Promise<Product>;
+  return response.json();
 };
 
 export const createProduct = async (
@@ -49,7 +49,7 @@ export const createProduct = async (
     throw new Error(await getErrorMessage(response));
   }
 
-  return response.json() as Promise<Product>;
+  return response.json();
 };
 
 export const updateProduct = async (
@@ -66,5 +66,5 @@ export const updateProduct = async (
     throw new Error(await getErrorMessage(response));
   }
 
-  return response.json() as Promise<Product>;
+  return response.json();
 };
