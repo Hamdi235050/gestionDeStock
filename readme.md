@@ -52,9 +52,7 @@ cd gestionDeStock
    pnpm install
    pnpm start
 
-### 2. Nouvelle section : Choix techniques & Architecture
-
-Ajoutez cette section vers la fin de votre README pour expliquer la justification de votre Stack :
+### 2. Choix techniques & Architecture
 
 ```markdown
 ## 💡 Choix Techniques & Architecture
